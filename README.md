@@ -24,4 +24,4 @@ provide a `.jshintrc` file within your project's base directory. If there is no 
 be search for in your home directory. This behaviour can be overridden by using a `JshintKeys.config` setting for the plugin.
 `JshintKeys.config` is used to specify the location of a configuration file.
 
-&copy; 2013-2017 [Lightbend Inc.](https://www.lightbend.com)
+&copy; 2013-2019 [Lightbend Inc.](https://www.lightbend.com)
