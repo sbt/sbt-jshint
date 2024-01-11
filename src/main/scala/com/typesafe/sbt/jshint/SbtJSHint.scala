@@ -63,13 +63,13 @@ object SbtJSHint extends AutoPlugin {
     }
   ) ++ inTask(jshint)(
     SbtJsTask.jsTaskSpecificUnscopedProjectSettings ++ Seq(
-      includeFilter in Assets := (jsFilter in Assets).value,
-      includeFilter in TestAssets := (jsFilter in TestAssets).value,
+      Assets / includeFilter := (Assets / jsFilter).value,
+      TestAssets / includeFilter := (TestAssets / jsFilter).value,
 
       jsOptions := resolvedConfig.value.fold("{}")(IO.read(_)),
 
-      taskMessage in Assets := "JavaScript linting",
-      taskMessage in TestAssets := "JavaScript test linting"
+      Assets / taskMessage := "JavaScript linting",
+      TestAssets / taskMessage := "JavaScript test linting"
 
     )
   ) ++ SbtJsTask.addJsSourceFileTasks(jshint)
