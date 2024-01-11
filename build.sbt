@@ -14,8 +14,15 @@ developers += Developer(
 )
 
 libraryDependencies ++= Seq(
-  "org.webjars.npm" % "jshint" % "2.9.7",
-  "org.webjars" % "strip-json-comments" % "1.0.2-1"
+  "org.webjars.npm" % "jshint" % "2.13.6",
+
+  // Multiple strip-json-comments dependencies will be downloaded by webjars extractor.
+  // Therefore we need to add the version we want to use to the require(...) statement.
+  // E.g. when running the scripted test by hand you will find the webjars in:
+  // src/sbt-test/sbt-jshint-plugin/test$ ls -a1 ./project/target/node-modules/webjars/strip-json-comments/
+  // 1.0.2-1
+  // 1.0.4
+  "org.webjars" % "strip-json-comments" % "1.0.2-1" // sync with "var stripJsonComments = require(...)" in src/main/resources/jshint-shell.js
 )
 
 addSbtJsEngine("1.3.5")

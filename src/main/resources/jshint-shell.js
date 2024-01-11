@@ -22,7 +22,7 @@
     var console = require("console");
     var fs = require("fs");
     var jshint = require("jshint");
-    var stripJsonComments = require("strip-json-comments");
+    var stripJsonComments = require("strip-json-comments/1.0.2-1"); // version of sub-folder defined in build.sbt's libraryDependencies
 
     var SOURCE_FILE_MAPPINGS_ARG = 2;
     var OPTIONS_ARG = 4;
