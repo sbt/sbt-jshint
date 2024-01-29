@@ -19,10 +19,11 @@
     "use strict";
 
     var args = process.argv;
+    var requireIfExists = require('node-require-fallback');
     var console = require("console");
     var fs = require("fs");
-    var jshint = require("jshint");
-    var stripJsonComments = require("strip-json-comments/1.0.2-1"); // version of sub-folder defined in build.sbt's libraryDependencies
+    var jshint = requireIfExists("jshint/2.13.6", "jshint"); // sync with build.sbt
+    var stripJsonComments = requireIfExists("strip-json-comments/1.0.2-1", "strip-json-comments"); // sync with build.sbt
 
     var SOURCE_FILE_MAPPINGS_ARG = 2;
     var OPTIONS_ARG = 4;

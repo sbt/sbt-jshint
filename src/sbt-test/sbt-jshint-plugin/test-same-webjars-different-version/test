@@ -5,7 +5,8 @@ $ exists target/missing-semi-error
 > set JshintKeys.config := Some(file("test.jshintrc"))
 > assets
 
-$ exists project/target/node-modules/webjars/jshint/bin/jshint
+$ exists project/target/node-modules/webjars/jshint/2.13.6/bin/jshint
+$ exists project/target/node-modules/webjars/jshint/2.9.1/jshint.js
 
 $ exists project/target/node-modules/webjars/strip-json-comments/1.0.2-1/strip-json-comments.js
 $ exists project/target/node-modules/webjars/strip-json-comments/1.0.4/strip-json-comments.js
