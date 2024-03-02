@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "strip-json-comments" % "1.0.2-1", // sync with src/main/resources/jshint-shell.js
 )
 
-addSbtJsEngine("1.3.5")
+addSbtJsEngine("1.3.6")
 
 // Customise sbt-dynver's behaviour to make it work with tags which aren't v-prefixed
 ThisBuild / dynverVTagPrefix := false
