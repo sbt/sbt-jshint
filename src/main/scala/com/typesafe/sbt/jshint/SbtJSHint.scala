@@ -14,6 +14,7 @@ object Import {
     val jshint = TaskKey[Seq[File]]("jshint", "Perform JavaScript linting.")
 
     val config = SettingKey[Option[File]]("jshint-config", "The location of a JSHint configuration file.")
+    @transient
     val resolvedConfig = TaskKey[Option[File]]("jshint-resolved-config", "The actual location of a JSHint configuration file if present. If jshint-config is none then the task will seek a .jshintrc in the project folder. If that's not found then .jshintrc will be searched for in the user's home folder. This behaviour is consistent with other JSHint tooling.")
 
   }
@@ -36,7 +37,7 @@ object SbtJSHint extends AutoPlugin {
   import SbtJsTask.autoImport.JsTaskKeys._
   import autoImport.JshintKeys._
 
-  override def buildSettings = inTask(jshint)(
+  override def buildSettings = Project.inTask(jshint)(
     SbtJsTask.jsTaskSpecificUnscopedBuildSettings ++ Seq(
       moduleName := "jshint",
       shellFile := getClass.getClassLoader.getResource("jshint-shell.js")
@@ -61,7 +62,7 @@ object SbtJSHint extends AutoPlugin {
         }
       }: Option[File]
     }
-  ) ++ inTask(jshint)(
+  ) ++ Project.inTask(jshint)(
     SbtJsTask.jsTaskSpecificUnscopedProjectSettings ++ Seq(
       Assets / includeFilter := (Assets / jsFilter).value,
       TestAssets / includeFilter := (TestAssets / jsFilter).value,
