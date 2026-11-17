@@ -10,3 +10,7 @@ WebKeys.reporter := new LoggedReporter(-1, streams.value.log) {
     }
   }
 }
+
+ThisBuild / scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.21" else "3.9.0"
+}
